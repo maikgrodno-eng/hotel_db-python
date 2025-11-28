@@ -58,9 +58,22 @@ class DBFacade:
     def add_category(self):
 
         try:
-            name_category = input("Введите категорию номера 'Эконом, Стандарт, Люкс': ")
+            user_input = input(" Выберите категорию номера \n 'Эконом' - 1 \n 'Стандарт' - 2 \n 'Люкс' - 3  \n Введите категорию номера: ")
 
             price_category = float(input("Введите стоимость номера за сутки: "))
+
+            if user_input == '1':
+                name_category = 'Эконом'
+
+            elif user_input == '2':
+                name_category = 'Стандарт'
+
+            elif user_input == '3':
+                name_category = 'Люкс'
+
+            else:
+                print("Неверный выбор!")
+                return
 
             add_category = """
                     INSERT INTO category (name, price) VALUES (%s, %s);
